@@ -33,7 +33,8 @@ export class TodoItemCardEditableComponent implements OnInit {
             .insert(0, this.fb.group({ title: [newTag.title], color: [newTag.color]}));
     }
 
-    public createTodoItem(): void {
+    public createTodoItem(e: Event): void {
+        e.preventDefault();
         if (this.todoItemForm.invalid) { return; }
         this.create.emit(this.todoItemForm.value);
     }
