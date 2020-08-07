@@ -1,0 +1,47 @@
+<div class="item-card tile-shadow">
+    <section class="title">
+        <h2>{{item.title}}</h2>
+    </section>
+    <section class="description bordered-top">
+        <tdl-todo-item-card-section
+        icon="article"
+        title="Description">
+            <p>
+                {{item.description}}
+            </p>
+        </tdl-todo-item-card-section>
+    </section>
+    <section class="projects bordered-top">
+        <tdl-todo-item-card-section
+        icon="assignment_turned_in"
+        title="Projects">
+            <p *ngFor="let projects of item.projects">
+                {{projects}}
+            </p>
+        </tdl-todo-item-card-section>
+    </section>
+    <section class="tags bordered-top">
+        <tdl-todo-item-card-section
+        icon="bookmark_border"
+        title="Tags">
+            <div class="tag-list">
+                <tdl-tag-badge
+                    *ngFor="let tag of item.tags"
+                    color="{{tag.color}}"
+                    title="{{tag.title}}">
+                </tdl-tag-badge>
+            </div>
+            <button mat-button class="icon-button">
+                <mat-icon color="warn">add</mat-icon><span>Add Tag</span>
+            </button>
+        </tdl-todo-item-card-section>
+    </section>
+    <section class="actions">
+        <button mat-flat-button
+                color="accent"
+                [disabled]="item.completed"
+                (click)="completeTodo.emit()">
+            Finish
+        </button>
+    </section>
+</div>

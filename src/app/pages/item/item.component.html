@@ -1,0 +1,18 @@
+<tdl-item-details-header></tdl-item-details-header>
+
+<ng-container *ngIf="!isLoading && (todo$ | async) as todo; else loader">
+    <section>
+        <tdl-calendar selectedDay="18"></tdl-calendar>
+    </section>
+
+    <main>
+        <tdl-todo-item-card
+            [item]="todo"
+            (completeTodo)="completeTodoItem(todo.id)"
+        ></tdl-todo-item-card>
+    </main>
+</ng-container>
+
+<ng-template #loader>
+    <tdl-loader></tdl-loader>
+</ng-template>

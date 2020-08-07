@@ -1,0 +1,59 @@
+<form [formGroup]="todoItemForm">
+    <div class="item-card tile-shadow">
+        <section class="title">
+            <mat-form-field class="example-full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Ex. Paint a picture">
+                <mat-error *ngIf="todoItemForm.controls.title.hasError('required')">
+                    Title is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+        </section>
+        <section class="description bordered-top">
+            <tdl-todo-item-card-section
+                icon="article"
+                title="Description">
+                <mat-form-field class="example-full-width">
+                    <mat-label></mat-label>
+                    <textarea matInput formControlName="description" placeholder="Ex. Something"></textarea>
+                </mat-form-field>
+            </tdl-todo-item-card-section>
+        </section>
+        <section class="projects bordered-top">
+            <tdl-todo-item-card-section
+                icon="assignment_turned_in"
+                title="Projects">
+                <p *ngFor="let project of todoItemForm.controls.projects.value">{{project}}</p>
+                <button mat-button class="icon-button" (click)="addProject()">
+                    <mat-icon color="warn">add</mat-icon>
+                    <span>Add Project</span>
+                </button>
+            </tdl-todo-item-card-section>
+        </section>
+        <section class="tags bordered-top">
+            <tdl-todo-item-card-section
+                icon="bookmark_border"
+                title="Tags">
+                <div class="tag-list">
+                    <tdl-tag-badge
+                        *ngFor="let tag of todoItemForm.controls.tags.value"
+                        color="{{tag.color}}"
+                        title="{{tag.title}}">
+                    </tdl-tag-badge>
+                </div>
+                <button mat-button class="icon-button" (click)="addTag()">
+                    <mat-icon color="warn">add</mat-icon>
+                    <span>Add Tag</span>
+                </button>
+            </tdl-todo-item-card-section>
+        </section>
+        <section class="actions">
+            <button mat-flat-button
+                    color="accent"
+                    (click)="createTodoItem()"
+            >
+                Create
+            </button>
+        </section>
+    </div>
+</form>

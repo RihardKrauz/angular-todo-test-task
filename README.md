@@ -1,4 +1,8 @@
-# TodoTilesApp
+# Todo Tiles App
+
+This is a prototype based on [sketch](https://dribbble.com/shots/5454607-To-do-list-App/attachments).
+
+##
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 

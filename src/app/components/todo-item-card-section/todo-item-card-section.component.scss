@@ -1,0 +1,21 @@
+@import '../../style/colors';
+
+.title-icon {
+    color: $color-pink;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+
+    & > span {
+        color: $color-gray;
+        margin-left: 12px;
+    }
+}
+
+.section-content {
+    padding-left: 36px;
+    margin: 12px 0;
+}
+

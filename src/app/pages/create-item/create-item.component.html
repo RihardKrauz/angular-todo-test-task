@@ -1,0 +1,17 @@
+<tdl-item-details-header></tdl-item-details-header>
+
+<ng-container *ngIf="!isLoading; else loader">
+    <section>
+        <tdl-calendar selectedDay="18"></tdl-calendar>
+    </section>
+
+    <main>
+        <tdl-todo-item-card-editable
+            (create)="addTodoItem($event)"
+        ></tdl-todo-item-card-editable>
+    </main>
+</ng-container>
+
+<ng-template #loader>
+    <tdl-loader></tdl-loader>
+</ng-template>

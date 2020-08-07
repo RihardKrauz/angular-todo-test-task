@@ -1,0 +1,24 @@
+<header>
+    <tdl-page-title [textLines]="title">
+    </tdl-page-title>
+</header>
+
+<ng-container *ngIf="(todos$ | async) as todos; else loader">
+    <main>
+        <div class="todo-items-wrapper" >
+            <tdl-todo-tile
+                *ngFor="let todoItem of todos; trackBy: trackById"
+                [item]="todoItem"
+                (click)="openTodoItem(todoItem.id)">
+            </tdl-todo-tile>
+        </div>
+    </main>
+
+    <footer>
+        <tdl-page-actions-panel></tdl-page-actions-panel>
+    </footer>
+</ng-container>
+
+<ng-template #loader>
+    <tdl-loader></tdl-loader>
+</ng-template>

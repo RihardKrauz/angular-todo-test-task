@@ -1,0 +1,45 @@
+@import '../../style/colors';
+@import '../../style/shadows';
+
+.calendar {
+    padding-bottom: 32px;
+}
+
+.month-title {
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.days-names {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-around;
+
+    & > * {
+        padding: 16px;
+        color: $color-gray;
+        font-size: 18px;
+    }
+}
+
+.days {
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-around;
+    font-size: 18px;
+
+    & > * {
+        padding: 12px;
+
+        &.weekend {
+            color: $color-gray;
+        }
+
+        &.selected {
+            border-radius: 100px;
+            background-color: $color-pink;
+            color: white;
+        }
+    }
+}

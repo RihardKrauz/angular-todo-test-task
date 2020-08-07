@@ -1,0 +1,16 @@
+<div class="calendar tile-shadow">
+    <div class="month-title">September</div>
+    <div class="days-names">
+        <span *ngFor="let day of daysOfWeek">{{day.name}}</span>
+    </div>
+    <div class="days">
+        <span
+            *ngFor="let day of days"
+            [ngClass]="{
+                selected: day.date === selectedDay,
+                weekend: day.isWeekend
+            }">
+            {{day.date}}
+        </span>
+    </div>
+</div>

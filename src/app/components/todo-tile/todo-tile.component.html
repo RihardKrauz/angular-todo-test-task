@@ -1,0 +1,15 @@
+<div *ngIf="item" class="tile-item tile-shadow" [ngClass]="{ completed: item.completed }">
+    <section class="tile-item__section slidable-section">
+        <tdl-tag-badge
+            *ngFor="let tag of item.tags"
+            color="{{tag.color}}"
+            title="{{tag.title}}">
+        </tdl-tag-badge>
+    </section>
+    <section class="tile-item__section tile-item__section_growable">
+        <p [ngClass]="{ stroked: item.completed }">{{item.title}}</p>
+    </section>
+    <section class="tile-item__section">
+        <span class="secondary-data">{{item.day | date:'y/M/d ah:mm'}}</span>
+    </section>
+</div>

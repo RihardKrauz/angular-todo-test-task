@@ -1,0 +1,9 @@
+.todo-items-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 190px);
+    grid-gap: 8px;
+}
+
+header, main, footer {
+    padding: 16px;
+}
